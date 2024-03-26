@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style type="text/css">
+        .container{
+            width: 600px;
+            border: 4px black solid;
+            box-sizing: border-box;
+            padding: 5px 15px;
+            margin: 5px;
+        }
+
+        p{
+            font-size: 14px;
+            font-family: Microsoft JhengHei;
+        }
+
+        .br{
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        h2{
+            font-family: Microsoft JhengHei;
+        }
+
+        h3{
+            font-family: Microsoft JhengHei;
+        }
+
+        textarea{
+            padding: 10px 10px;
+        }
+
+        button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 15px;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            color: #FFFFFF;
+            background-color: #1DC9A0;
+            font-size: 12px;
+            letter-spacing: 1px;
+            transition: all 0.15s linear;
+        }
+
+        button:hover {
+            background-color: rgba(29, 201, 160, 0.08);
+            border-color: #1DC9A0;
+            color: #1DC9A0;
+            transform: translateY(-1px) scale(1.05);
+        }
+
+        button:active {
+            background-color: transparent;
+            border-color: #1DC9A0;
+            color: #1DC9A0;
+            transform: translateY(1px) scale(0.95);
+        }
+
+        button:disabled {
+            background-color: rgba(255, 255, 255, 0.16);
+            color: #8E8E93;
+            border-color: #8E8E93;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div>
+            <h2>正規化表示法：搜索 & 刪除</h2>
+            <h3>本服務提供網頁版之 regular expression 的文字替換功能，<br>
+                以便不必切換到其他文字編輯器來完成操作，</h3>
+        </div>
+
+        <div>
+            <p>step 1. 請先用下列網址，查找適合的 reg_exp： <a href="https://regex101.com/">https://regex101.com/</a>。</p>
+            
+            <p>
+                <span class="br">step 2. 輸入原文。</span>
+                <textarea id="input" rows="7" cols="70"></textarea>
+            </p>
+            
+            <p>
+                <span class="br">step 3. 輸入 RE。</span>
+                <textarea id="reg_exp" rows="4" cols="70"></textarea>
+            </p>
+
+            <button class="button" onclick="reg_exp_delete()">Try it</button>
+
+            <p>
+                <span class="br">step 4. 刪除匹配文字。</span>
+                <textarea id="demo" rows="7" cols="70"></textarea>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+
+        function reg_exp_delete() {
+            try {
+                  var string = document.getElementById("input").value;
+                var reg_exp = document.getElementById("reg_exp").value;
+        
+                  document.getElementById("demo").innerHTML = string.replace(reg_exp, '');
+            }
+            catch(e){
+                console.log('error: myfunction', e);
+            }
+        }
+        
+    </script>
+
+</body>
+
+</html>
