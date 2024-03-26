@@ -1,0 +1,124 @@
+
+<!-- saved from url=(0088)https://portalfun.yzu.edu.tw/accountNET/mmis/invoice.aspx?form_type=UCxNSVMsMTEwMDExODQs -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	收據列印
+</title>
+<style>
+body{ 
+    page-break-before: always;
+    page-break-after: always;
+}
+ /*在標籤後換頁*/
+</style>
+</head>
+<body data-new-gr-c-s-check-loaded="14.1032.0" data-gr-ext-installed="">
+    <form name="form1" method="post" action="https://portalfun.yzu.edu.tw/accountNET/mmis/invoice.aspx?form_type=UCxNSVMsMTEwMDExODQs" id="form1">
+    <input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="sn2TgBtzdNNi+LEz6ePhJMIzk5OuLxwoUUNxg68wIN+PIsFZV7X3Vo5qRmqbm/l2HBz/o9LL0gBLuuObMTGK8ZKhhlkAe0RBwnztKiSJYHpbHxR7rLyJm903As5dC8uP4IrNOEpU2PbwfX71NuD0/IgvEJs=">
+
+    <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F28A9076">
+
+    <#assign end = receipts?size />
+    <#assign p = 0 />
+    <#list receipts as rec>
+        <#assign p = p + 1 />
+        
+        <table cellspacing="0" cellpadding="0" bordercolor="Black" border="0" style="border-color:Black;border-width:2px;border-style:solid;border-collapse:collapse;width:17cm;height:11cm;">
+        <tbody><tr>
+            <td><table cellspacing="0" border="0" style="border-width:0px;width:100%;border-collapse:collapse;">
+                <tbody><tr>
+                    <td align="center" colspan="2"><br><font size="5"><strong><u>收&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;據</u></strong><font></font></font></td>
+                </tr><tr>
+                    <td align="left" colspan="2">&nbsp;&nbsp;茲收到&nbsp;&nbsp;&nbsp;&nbsp;<font size="4"><strong><em>元&nbsp;智&nbsp;大&nbsp;學</em></strong></font></td>
+                </tr><tr>
+                    <td align="left"><table cellspacing="0" cellpadding="0" border="0" style="border-width:0px;border-collapse:collapse;">
+                        <tbody><tr>
+                            <td nowrap="nowrap">&nbsp;&nbsp;款項及用途：</td><td style="font-size:Smaller;font-style:italic;">${rec.detail}</td>
+                        </tr>
+                    </tbody></table></td>
+                    <td align="left" style="width:35%;"><table cellspacing="0" cellpadding="0" border="0" style="border-width:0px;border-collapse:collapse;">
+                        <tbody><tr>
+                            <td nowrap="nowrap">&nbsp;&nbsp;計算標準：</td><td style="font-size:Smaller;font-style:italic;">${rec.money_permonth}</td>
+                        </tr>
+                    </tbody></table></td>
+                </tr><tr>
+                    <td align="left">&nbsp;&nbsp;共計&nbsp;&nbsp;新台幣&nbsp;&nbsp;<strong><em>${rec.money}</em></strong>&nbsp;&nbsp;元整</td><td align="left" rowspan="3"><table cellspacing="0" cellpadding="0" bordercolor="Black" border="0" style="border-color:Black;border-width:1px;border-style:solid;border-collapse:collapse;width:6.5cm;">
+                        <tbody><tr>
+                            <td align="left">扣繳稅率：<br>扣繳稅額：<br>(※填寫前請先詢問會計室)</td>
+                        </tr>
+                    </tbody></table></td>
+                </tr><tr>
+                    <td align="left" valign="bottom">&nbsp;&nbsp;領款人簽章：</td>
+                </tr><tr>
+                    <td align="left" valign="bottom">&nbsp;&nbsp;<img src="./收據列印_files/arrow-down.JPG" style="border-width:0px;"></td>
+                </tr><tr>
+                    <td align="left" valign="top" colspan="2">&nbsp;&nbsp;<strong>※領款人須依所得稅法相關規定，配合辦理所得通報及扣繳。</strong><br></td>
+                </tr>
+                
+                <td align="left"><table cellspacing="0" cellpadding="0" border="0" style="border-width:0px;border-collapse:collapse;">
+                    <tbody><tr>
+                        <td nowrap="nowrap">&nbsp;&nbsp;服務單位：</td><td style="font-size:Smaller;font-style:italic;">${rec.job_place}</td>
+                    </tr>
+                </tbody></table></td>
+                <td rowspan="4"><img src="./收據列印_files/attentionbox.jpg" border="0"></td>
+
+                <tr>
+                    <td align="left">&nbsp;&nbsp;<font size="1">（學生請填寫學校名稱、系所）</font></td>
+                </tr>
+                
+                <td align="left"><table cellspacing="0" cellpadding="0" border="0" style="border-width:0px;border-collapse:collapse;">
+                    <tbody><tr>
+                        <td nowrap="nowrap">&nbsp;&nbsp;職稱：</td><td style="font-size:Smaller;font-style:italic;">${rec.job_name}</td>
+                    </tr>
+                </tbody></table></td>
+                
+                <tr>
+                    <td align="left">&nbsp;</td>
+                </tr><tr>
+                    <td align="left" colspan="2">&nbsp;&nbsp;戶籍地址：<em>${rec.address}</em></td>
+                </tr><tr>
+                    <td align="left" colspan="2"><table border="0">
+                        <tbody><tr>
+                            <td align="right">&nbsp;<font size="1">身份證統一編號：<br><br>或居留證統一編號：</font></td><td><table cellspacing="0" cellpadding="0" bordercolor="Black" border="0" style="border-color:Black;border-width:1px;border-style:solid;border-collapse:collapse;width:3.5cm;height:1cm;">
+                                <tbody><tr>
+                                    <td align="center" style="border-width:1px;border-style:solid;"><font size="4">${rec.id[0]}</font></td><td align="center" style="border-width:1px;border-style:solid;"><font size="4">${rec.id[1]}</font></td><td align="center" style="border-width:1px;border-style:solid;"><font size="4">${rec.id[2]}</font></td><td align="center" style="border-width:1px;border-style:solid;"><font size="4">${rec.id[3]}</font></td><td align="center" style="border-width:1px;border-style:solid;"><font size="4">${rec.id[4]}</font></td><td align="center" style="border-width:1px;border-style:solid;"><font size="4">${rec.id[5]}</font></td><td align="center" style="border-width:1px;border-style:solid;"><font size="4">${rec.id[6]}</font></td><td align="center" style="border-width:1px;border-style:solid;"><font size="4">${rec.id[7]}</font></td><td align="center" style="border-width:1px;border-style:solid;"><font size="4">${rec.id[8]}</font></td><td align="center" style="border-width:1px;border-style:solid;"><font size="4">${rec.id[9]}</font></td>
+                                </tr>
+                            </tbody></table></td><td><table cellspacing="0" cellpadding="0" bordercolor="Black" border="0" style="border-color:Black;border-width:1px;border-style:solid;border-collapse:collapse;width:10.1cm;">
+                                <tbody><tr>
+                                    <td align="center" colspan="13" style="border-width:1px;border-style:solid;"><font size="2"> 無&nbsp;居&nbsp;留&nbsp;證&nbsp;統&nbsp;一&nbsp;證&nbsp;號&nbsp;之&nbsp;外&nbsp;僑&nbsp;專&nbsp;用</font></td>
+                                </tr><tr>
+                                    <td align="center" style="border-width:1px;border-style:solid;"><font size="1">國&nbsp;籍</font></td><td align="center" style="border-width:1px;border-style:solid;"><font size="1">護照號碼</font></td><td align="center" rowspan="3" style="border-width:1px;border-style:solid;"><font size="1">稅<br>籍<br>編<br>號</font></td><td style="border-width:1px;border-style:solid;">&nbsp;</td><td style="border-width:1px;border-style:solid;">&nbsp;</td><td style="border-width:1px;border-style:solid;">&nbsp;</td><td style="border-width:1px;border-style:solid;">&nbsp;</td><td style="border-width:1px;border-style:solid;">&nbsp;</td><td style="border-width:1px;border-style:solid;">&nbsp;</td><td style="border-width:1px;border-style:solid;">&nbsp;</td><td style="border-width:1px;border-style:solid;">&nbsp;</td><td style="border-width:1px;border-style:solid;">&nbsp;</td><td style="border-width:1px;border-style:solid;">&nbsp;</td>
+                                </tr><tr>
+                                    <td rowspan="2" style="border-width:1px;border-style:solid;">&nbsp;&nbsp;</td><td rowspan="2" style="border-width:1px;border-style:solid;">&nbsp;&nbsp;</td><td align="center" colspan="4" style="border-width:1px;border-style:solid;"><font size="1">出生年 (四位)</font></td><td align="center" colspan="2" style="border-width:1px;border-style:solid;"><font size="1"> 月 (二位)</font></td><td align="center" colspan="2" style="border-width:1px;border-style:solid;"><font size="1"> 日 (二位)</font></td><td align="center" colspan="2" rowspan="2" style="border-width:1px;border-style:solid;"><font size="1"> 護照英文<br>姓名欄前<br>兩個字母<font></font></font></td>
+                                </tr><tr>
+                                    <td align="center" colspan="8" style="border-width:1px;border-style:solid;"><font size="1">例如：1944 年 5 月 19 日出生，即為 (19440519)</font></td>
+                                </tr>
+                            </tbody></table></td>
+                        </tr>
+                    </tbody></table></td>
+                </tr><tr>
+                    <td align="left" colspan="2"><table border="0" style="border-width:0px;width:90%;">
+                        <tbody><tr>
+                            <td align="center" style="width:8%;"> 中</td><td align="center" style="width:8%;">華</td><td align="center" style="width:8%;">民</td><td align="center" style="width:8%;">國</td><td align="right" style="width:22%;">年</td><td align="right" style="width:22%;">月</td><td align="right" style="width:24%;">日</td>
+                        </tr>
+                    </tbody></table></td>
+                </tr>
+            </tbody></table></td></tr>
+        </tbody></table>
+        <table cellspacing="0" cellpadding="0" border="0" style="border-width:0px;border-collapse:collapse;height:1.8cm;">
+        <tbody><tr>
+            <td align="left" valign="top" style="font-size:Smaller;">&nbsp;</td>
+        </tr></tbody>
+        </table>
+
+        <#if p lt end>
+            <#if (p % 2) == 0>
+                <p style="page-break-after:always"></p>
+            </#if>
+        </#if>
+
+    </#list>
+
+</form>
+
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

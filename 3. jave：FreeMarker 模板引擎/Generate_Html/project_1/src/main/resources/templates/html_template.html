@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name='viewport' content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+
+        <title>Freemarker 模板引擎</title>
+
+        <style type="text/css">
+            
+            body {
+                background-color: #f4f4f4;
+            }
+
+            article {
+                padding: 5px;
+            }
+
+            address {
+                font-style: normal;
+                text-align: right;
+                width: 500px;
+                color: #777;
+            }
+            .author {
+                float: left;
+            }
+            
+            .img {
+                width: 500px;
+                height: 300px;
+            }
+
+            .container {
+                width: 470px;
+                padding: 15px;
+            }
+
+            /* 定義留言板的外觀 */
+            .message-board {
+                background-color: #f7f7f7;
+            }
+
+            /* 定義留言板的標題 */
+            .message-board-title {
+                font-size: 20px;
+                font-weight: bold;
+                padding: 10pz;
+                border-bottom: 1px solid #aaa;
+            }
+
+            /* 定義留言板的留言列表 */
+            .message-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            /* 定義留言板的每一條留言 */
+            .message {
+                padding: 10px;
+                border-bottom: 3px solid #ccc;
+            }
+
+            /* 定義留言板的留言作者 */
+            .message-author {
+                font-size: 16px;
+                font-weight: bold;
+                background-color: #ccc;
+                padding: 1px;
+            }
+
+            /* 定義留言板的留言日期 */
+            .message-date {
+                font-size: 12px;
+                background-color: #ccc;
+                color: #999;
+                flex: 1;
+                text-align: right;
+                padding: 2px;
+            }
+
+            /* 定義留言板的留言內容 */
+            .message-content {
+                margin-top: 5px;
+                font-size: 14px;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+            
+            .message-list {
+                margin-top: 20px;
+            }
+
+            li {
+                margin-bottom: 10px;
+                padding: 10px;
+                background-color: #fff;
+                border: 1px solid #bbb;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <article>
+        
+            <h2>${title}</h2>
+            
+            <address>
+                <span class="author">作者：${author}</span> <br>
+                <span class="publishTime">上傳時間：${publishTime}</span> <br>
+                <span class="seeNum">觀看人數：${seeNum}</span> <br>
+            </address>
+            
+            <span></span>
+
+            <img src="${imgPath}" class="img"/>
+            
+            <p>${content}</p>
+            
+        </article>
+
+        <div class="container">
+            <div class="message-board">
+                <div class="message-board-title">留言板<div>
+                <ul class="message-list">
+                    <#list commentList as comment>
+                    <li class="message">
+                        <div class="message-author">&nbsp;F${comment_index+1}</div>
+                        <div class="message-date">發佈時間：${comment.time}</div>
+                        <div class="message-content">${comment.detail}</div>
+                        <!-- <div class="message-date">${comment.time}</div> -->
+                    </li>
+                    </#list>
+                </ul>
+            </div>
+        </div>
+
+    </body>
+
+</html>

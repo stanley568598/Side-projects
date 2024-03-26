@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name='viewport' content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+
+        <title>Freemarker 模板引擎</title>
+
+        <style type="text/css">
+            
+            body {
+                background-color: #f4f4f4;
+            }
+
+            article {
+                padding: 5px;
+            }
+
+            address {
+                font-style: normal;
+                text-align: right;
+                width: 500px;
+                color: #777;
+            }
+            .author {
+                float: left;
+            }
+            
+            .img {
+                width: 500px;
+                height: 300px;
+            }
+
+            .container {
+                width: 470px;
+                padding: 15px;
+            }
+
+            /* 定義留言板的外觀 */
+            .message-board {
+                background-color: #f7f7f7;
+            }
+
+            /* 定義留言板的標題 */
+            .message-board-title {
+                font-size: 20px;
+                font-weight: bold;
+                padding: 10pz;
+                border-bottom: 1px solid #aaa;
+            }
+
+            /* 定義留言板的留言列表 */
+            .message-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            /* 定義留言板的每一條留言 */
+            .message {
+                padding: 10px;
+                border-bottom: 3px solid #ccc;
+            }
+
+            /* 定義留言板的留言作者 */
+            .message-author {
+                font-size: 16px;
+                font-weight: bold;
+                background-color: #ccc;
+                padding: 1px;
+            }
+
+            /* 定義留言板的留言日期 */
+            .message-date {
+                font-size: 12px;
+                background-color: #ccc;
+                color: #999;
+                flex: 1;
+                text-align: right;
+                padding: 2px;
+            }
+
+            /* 定義留言板的留言內容 */
+            .message-content {
+                margin-top: 5px;
+                font-size: 14px;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                margin-bottom: 20px;
+            }
+            
+            .message-list {
+                margin-top: 20px;
+            }
+
+            li {
+                margin-bottom: 10px;
+                padding: 10px;
+                background-color: #fff;
+                border: 1px solid #bbb;
+            }
+        </style>
+
+    </head>
+
+    <body>
+
+        <article>
+        
+            <h2>Freemarker 模板引擎</h2>
+            
+            <address>
+                <span class="author">作者：Stanley</span> <br>
+                <span class="publishTime">上傳時間：2022-07-07</span> <br>
+                <span class="seeNum">觀看人數：6</span> <br>
+            </address>
+            
+            <span></span>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRABZYhX2FTcVfhbhN2y6QFHITZf1XgSy92eQ&usqp=CAU" class="img"/>
+            
+            <p>不秀恩愛，沒有傷害！！！<br>~~單身狗保護協會~~</p>
+            
+        </article>
+
+        <div class="container">
+            <div class="message-board">
+                <div class="message-board-title">留言板<div>
+                <ul class="message-list">
+                    <li class="message">
+                        <div class="message-author">&nbsp;F1</div>
+                        <div class="message-date">發佈時間：2022-07-07 11:10:05</div>
+                        <div class="message-content">七夕就要到了，要秀恩愛的就別秀了，畢竟有那麼多沒伴兒的，另外萬一秀恩愛爆照遇見撞臉的就不好了。</div>
+                        <!-- <div class="message-date">2022-07-07 11:10:05</div> -->
+                    </li>
+                    <li class="message">
+                        <div class="message-author">&nbsp;F2</div>
+                        <div class="message-date">發佈時間：2022-07-07 11:15:30</div>
+                        <div class="message-content">七夕那天我會玩一整天的連連看，消滅一對是一對。</div>
+                        <!-- <div class="message-date">2022-07-07 11:15:30</div> -->
+                    </li>
+                    <li class="message">
+                        <div class="message-author">&nbsp;F3</div>
+                        <div class="message-date">發佈時間：2022-07-07 11:20:00</div>
+                        <div class="message-content">七夕快到了，單身的朋友們，趕緊去超市，悄悄往每盒巧克力里塞張紙條：我們分手吧！</div>
+                        <!-- <div class="message-date">2022-07-07 11:20:00</div> -->
+                    </li>
+                    <li class="message">
+                        <div class="message-author">&nbsp;F4</div>
+                        <div class="message-date">發佈時間：2022-07-07 12:05:40</div>
+                        <div class="message-content">七夕的時候雇兩個小孩，遇見男的就喊爸，遇見女的就喊媽，能拆一對是一對。</div>
+                        <!-- <div class="message-date">2022-07-07 12:05:40</div> -->
+                    </li>
+                    <li class="message">
+                        <div class="message-author">&nbsp;F5</div>
+                        <div class="message-date">發佈時間：2022-07-07 11:00:25</div>
+                        <div class="message-content">剛接到玉帝通知：牛郎織女由於興奮過度，失足掉下鵲橋，七夕情人節取消，請互相轉告。</div>
+                        <!-- <div class="message-date">2022-07-07 11:00:25</div> -->
+                    </li>
+                    <li class="message">
+                        <div class="message-author">&nbsp;F6</div>
+                        <div class="message-date">發佈時間：2022-07-07 13:00:15</div>
+                        <div class="message-content">情人節那天誰要是在我面前秀恩愛，我就拍照截圖，等到你結婚時候對象不是現在的那個人，我就把照片列印出來放在紅包里。</div>
+                        <!-- <div class="message-date">2022-07-07 13:00:15</div> -->
+                    </li>
+                    <li class="message">
+                        <div class="message-author">&nbsp;F7</div>
+                        <div class="message-date">發佈時間：2022-07-07 10:30:20</div>
+                        <div class="message-content">七夕情人節低價出售，便宜甩賣！</div>
+                        <!-- <div class="message-date">2022-07-07 10:30:20</div> -->
+                    </li>
+                    <li class="message">
+                        <div class="message-author">&nbsp;F8</div>
+                        <div class="message-date">發佈時間：2022-07-07 12:50:45</div>
+                        <div class="message-content">七夕都別約我啊！早上我要賣花，晚上我要賣套，凌晨我還得蹲酒店門口賣藥。</div>
+                        <!-- <div class="message-date">2022-07-07 12:50:45</div> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </body>
+
+</html>
