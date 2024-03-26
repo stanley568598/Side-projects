@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+
+<script>
+
+function myFunction() {
+	try {
+  		var number = document.getElementById("input").value;
+
+  		document.getElementById("demo").innerHTML = transformNumberToMandarin(number);
+    }
+    catch(e){
+        console.log('error: myfunction', e);
+    }
+}
+
+function transformNumberToMandarin(targetNumber) {
+    const targetNumberString = ''+parseInt(targetNumber);
+    if (!targetNumber || isNaN(targetNumber) || targetNumberString.length <= 0 ) {
+        return '';
+    }
+    const digitsChars = ['零','壹','貳','參','肆','伍','陸','柒','捌','玖'];
+    if (targetNumberString.length == 1 ) {
+        return digitsChars[targetNumber]+'元整';
+    }
+    const inCommaPoints = ['', '拾','佰','仟'];
+    const commaPoints = ['', '萬','億','兆','京','垓','秭','穰','溝','澗','正','載','極恆河沙','阿僧祇','那由他','不可思議','無量','大數'];
+    const targetNumberReversed = targetNumberString.split('').reverse();
+    const output = targetNumberReversed.reduce(function(prev, currentDigitString, index) {
+        const currentDigit = parseInt(currentDigitString);
+        const prevLength = prev.length;
+        var tempOutput = '';
+        if (prevLength <= 0) {
+            tempOutput  = currentDigit == 0 ? '' : digitsChars[currentDigit] + inCommaPoints[index%4];
+        } else {
+            if(currentDigit == 0) {
+                if (prev.indexOf('零') == 0) {
+                    tempOutput = '';
+                } else {
+                    tempOutput = digitsChars[currentDigit];
+                }
+            } else {
+                tempOutput =  digitsChars[currentDigit] + inCommaPoints[index%4];
+            }
+        }
+        if(prev.indexOf(commaPoints[Math.floor(index/4)]) == -1) {
+            tempOutput = tempOutput + commaPoints[Math.floor(index/4)];
+        }
+        return tempOutput+prev;
+    },'');
+    
+    return output;
+}
+
+</script>
+
+<body>
+
+    <h1>transform_Number_To_Mandarin</h1>
+
+    <table>
+        <tr> <td>Input:</td> <td>金額數值</td> </tr>
+        <tr> <td>Output:</td> <td>國字大寫</td> </tr>
+    </table>
+
+    <br>
+
+    <textarea id="input" rows="3" cols="30"></textarea>
+
+    <br>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <br>
+    
+    <p id="demo"></p>
+
+</body>
+
+</html>
