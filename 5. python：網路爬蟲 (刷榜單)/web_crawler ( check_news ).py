@@ -78,16 +78,16 @@ while True :
                 
                 title = link.get('title')
 
-                print('\n - ', title, end = " ") 
+                print('\n - ', title) 
 
                 onclick = link.get('onclick')
                 # print(onclick)
 
-                id = re.findall("(?<='action\.aspx\?)([^']*)", onclick)
+                id = re.findall("(?<=action\.aspx\?)([^']*)", onclick)
                 # print(id)
                 # print(id[0])
 
-                url = "https://sr2.aa.nycu.edu.tw/popup.aspx?type=1&" + id[0]
+                url = "\t" + "https://sr2.aa.nycu.edu.tw/ popup.aspx?type=1&" + id[0]
                 print(url)
 
                 release = True
