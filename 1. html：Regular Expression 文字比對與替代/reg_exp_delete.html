@@ -110,10 +110,36 @@
 
         function reg_exp_delete() {
             try {
-                  var string = document.getElementById("input").value;
-                var reg_exp = document.getElementById("reg_exp").value;
-        
-                  document.getElementById("demo").innerHTML = string.replace(reg_exp, '');
+                    var get_reg_exp = new RegExp("(?<=\/).*(?=\/[a-z]*$)", "");
+                    var get_reg_flag = new RegExp("(?<=\/)[a-z]*$", "");
+
+                    var input = document.getElementById("input").value;
+                    var reg_exp_text = document.getElementById("reg_exp").value;
+
+                    console.log('test exp: ', get_reg_exp.test(reg_exp_text));
+                    console.log('test flag: ', get_reg_flag.test(reg_exp_text));
+
+                    if(get_reg_exp.test(reg_exp_text) && get_reg_flag.test(reg_exp_text)){
+
+                        var reg_exp = reg_exp_text.match(get_reg_exp)[0];
+                        var reg_flag = reg_exp_text.match(get_reg_flag)[0];
+
+                        console.log('reg_exp: ', reg_exp);
+                        console.log('reg_flag: ', reg_flag);
+
+                        var reg = new RegExp(reg_exp, reg_flag);
+                        console.log('reg: ', reg);
+                    }
+                    else{
+                        var reg = new RegExp(reg_exp_text, "");
+                        console.log('reg: ', reg);
+                    }
+
+                    var output = input.replace(reg, '').trim();
+                    console.log('input: \n' + input);
+                    console.log('output: \n' + output);
+
+                    document.getElementById("demo").value = output;
             }
             catch(e){
                 console.log('error: myfunction', e);
