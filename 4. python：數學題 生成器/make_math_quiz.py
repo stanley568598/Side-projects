@@ -7,17 +7,12 @@ def get_num():
     return str(random.randint(10, 200))
 
 def get_operator():
-    select = random.randint(0, 3)
-    if select == 0:
-        return '+'
-    elif select == 1:
-        return '-'
-    elif select == 2:
-        return '*'
-        # return 'x'
-    elif select == 3:
-        return '/'
-        # return '÷'
+    
+    items = ['+', '-', '*', '/']
+    
+    weights = (2, 2, 6, 10)
+
+    return random.choices(items, weights)[0]
 
 def get_time():
     now = time.time()
